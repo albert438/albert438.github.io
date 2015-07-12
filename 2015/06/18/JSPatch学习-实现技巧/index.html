@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JSPatch学习:实现技巧 | Albert43&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="GCD的实现我们知道JSPatch和Wax的核心技术都是在通过runtime技术来动态替换给类添加方法，但是GCD这种C API是没法通过runtime技术来获取的。这里我也花了时间研究，一开始想通过dlsym函数通过函数名来获取对应的函数地址，通过JS脚本传入C函数名称。但实际上还需要预先定义一个相同类型的函数指针才能调用，做不到完全的动态调用。而且还有一个问题就是像CGRectMake这种，实">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSPatch学习:实现技巧">
+<meta property="og:url" content="http://albert438.github.io/2015/06/18/JSPatch学习-实现技巧/index.html">
+<meta property="og:site_name" content="Albert43's Blog">
+<meta property="og:description" content="GCD的实现我们知道JSPatch和Wax的核心技术都是在通过runtime技术来动态替换给类添加方法，但是GCD这种C API是没法通过runtime技术来获取的。这里我也花了时间研究，一开始想通过dlsym函数通过函数名来获取对应的函数地址，通过JS脚本传入C函数名称。但实际上还需要预先定义一个相同类型的函数指针才能调用，做不到完全的动态调用。而且还有一个问题就是像CGRectMake这种，实">
+<meta property="og:updated_time" content="2015-07-09T02:14:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JSPatch学习:实现技巧">
+<meta name="twitter:description" content="GCD的实现我们知道JSPatch和Wax的核心技术都是在通过runtime技术来动态替换给类添加方法，但是GCD这种C API是没法通过runtime技术来获取的。这里我也花了时间研究，一开始想通过dlsym函数通过函数名来获取对应的函数地址，通过JS脚本传入C函数名称。但实际上还需要预先定义一个相同类型的函数指针才能调用，做不到完全的动态调用。而且还有一个问题就是像CGRectMake这种，实">
+  
+    <link rel="alternative" href="/atom.xml" title="Albert43&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://avatars2.githubusercontent.com/u/6995711?v=3&amp;amp;s=460" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Albert43</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">学习总结 思考感悟</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/albert438" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/albert43" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:albertliang.lt@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/JSPatch/" style="font-size: 15px;">JSPatch</a> <a href="/tags/iOS开发/" style="font-size: 20px;">iOS开发</a> <a href="/tags/小记/" style="font-size: 10px;">小记</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://nianxi.net/">念茜博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Albert43</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://avatars2.githubusercontent.com/u/6995711?v=3&amp;amp;s=460" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Albert43</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">学习总结 思考感悟</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/albert438" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/albert43" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:albertliang.lt@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-JSPatch学习-实现技巧" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/06/18/JSPatch学习-实现技巧/" class="article-date">
+  	<time datetime="2015-06-18T11:50:51.000Z" itemprop="datePublished">2015-06-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JSPatch学习:实现技巧
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSPatch/">JSPatch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS开发/">iOS开发</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="GCD的实现">GCD的实现</h1><p>我们知道JSPatch和Wax的核心技术都是在通过runtime技术来动态替换给类添加方法，但是GCD这种C API是没法通过runtime技术来获取的。这里我也花了时间研究，一开始想通过<a href="http://baike.baidu.com/link?url=tQcimwhSphQpM9I2nSCHWiYHfg7wjtddAsnqjTUvZjM0dGCv0e6PlCy84Ub7iCkEOClHdO-BVZCWyKYQxgFU8K" target="_blank" rel="external">dlsym函数</a>通过函数名来获取对应的函数地址，通过JS脚本传入C函数名称。但实际上还需要预先定义一个相同类型的函数指针才能调用，做不到完全的动态调用。而且还有一个问题就是像CGRectMake这种，实质上是内联函数，并没有对应的函数地址。</p>
+<p>现在JSPatch采用的是预先在JSContext中封装了对GCD的调用，所以才能在JS中使用GCD，其代码如下。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">__<span class="keyword">weak</span> JSContext *weakCtx = context;</span><br><span class="line">  context[<span class="string">@"dispatch_after"</span>] = ^(<span class="keyword">double</span> time, JSValue *func) &#123;</span><br><span class="line">      JSValue *currSelf = weakCtx[<span class="string">@"self"</span>];</span><br><span class="line">      dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^&#123;</span><br><span class="line">          JSValue *prevSelf = weakCtx[<span class="string">@"self"</span>];</span><br><span class="line">          weakCtx[<span class="string">@"self"</span>] = currSelf;</span><br><span class="line">          [func callWithArguments:<span class="literal">nil</span>];</span><br><span class="line">          weakCtx[<span class="string">@"self"</span>] = prevSelf;</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line">  context[<span class="string">@"dispatch_async_main"</span>] = ^(JSValue *func) &#123;</span><br><span class="line">      JSValue *currSelf = weakCtx[<span class="string">@"self"</span>];</span><br><span class="line">      <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">          JSValue *prevSelf = weakCtx[<span class="string">@"self"</span>];</span><br><span class="line">          weakCtx[<span class="string">@"self"</span>] = currSelf;</span><br><span class="line">          [func callWithArguments:<span class="literal">nil</span>];</span><br><span class="line">          weakCtx[<span class="string">@"self"</span>] = prevSelf;</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line">  context[<span class="string">@"dispatch_sync_main"</span>] = ^(JSValue *func) &#123;</span><br><span class="line">      <span class="keyword">if</span> ([<span class="built_in">NSThread</span> currentThread]<span class="variable">.isMainThread</span>) &#123;</span><br><span class="line">          [func callWithArguments:<span class="literal">nil</span>];</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="built_in">dispatch_sync</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">              [func callWithArguments:<span class="literal">nil</span>];</span><br><span class="line">          &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  context[<span class="string">@"dispatch_async_global_queue"</span>] = ^(JSValue *func) &#123;</span><br><span class="line">      JSValue *currSelf = weakCtx[<span class="string">@"self"</span>];</span><br><span class="line">      <span class="built_in">dispatch_async</span>(dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>), ^&#123;</span><br><span class="line">          JSValue *prevSelf = weakCtx[<span class="string">@"self"</span>];</span><br><span class="line">          weakCtx[<span class="string">@"self"</span>] = currSelf;</span><br><span class="line">          [func callWithArguments:<span class="literal">nil</span>];</span><br><span class="line">          weakCtx[<span class="string">@"self"</span>] = prevSelf;</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+<p>其中要注意的地方一个是，在block里是不能直接使用context的，因为会造成循环引用。所以在这里有两个处理方式，要么是使用__weak修饰符，要么就是使用JavascriptCore.framework提供的api</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JSContext *currContext = [JSContext currentContext];</span><br></pre></td></tr></table></figure>
+<p>还有一点就是在<code>dispatch_sync_main</code>这个方法里，作者对代码所在的运行现成进行了一个判断，防止了死锁。具体的原理可以看《Objective-C 高级编程》一书中关于GCD的章节。</p>
+<h1 id="JS脚本的异常处理">JS脚本的异常处理</h1><p>如果JS脚本出现了异常的话，在OC这边是不会知道的，使用JavaScriptCore.framwork中的exceptionHandler才能捕获这个异常，具体代码如下</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">context<span class="variable">.exceptionHandler</span> = ^(JSContext *con, JSValue *exception) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, exception);</span><br><span class="line">        <span class="built_in">NSAssert</span>(<span class="literal">NO</span>, <span class="string">@"js exception: %@"</span>, exception);</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="使用#pragma来抑制warning">使用#pragma来抑制warning</h1><p>详细的介绍可以看参考<a href="http://nshipster.cn/clang-diagnostics/" target="_blank" rel="external">Matt Thomson写的一篇关于clang diagnostics的文章</a>，里面提供了一个<a href="http://fuckingclangwarnings.com/" target="_blank" rel="external">网站</a>详细地记录了抑制各种warning的写法。</p>
+<h1 id="使用宏来预定义IMP函数">使用宏来预定义IMP函数</h1><p>由于要替换原有的函数实现，所以要预先定义好各种返回类型的IMP函数。如果全部写出来的话，将会耗费大量篇幅来写差不多的函数实现，这里作者使用了宏来进行替换，具体代码如下</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">define</span> JPMETHOD_IMPLEMENTATION(_type, _typeString, _typeSelector) \</span><br><span class="line">    JPMETHOD_IMPLEMENTATION_RET(_type, _typeString, return [[ret toObject] _typeSelector]) \</span><br><span class="line"></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> JPMETHOD_IMPLEMENTATION_RET(_type, _typeString, _ret) \</span><br><span class="line">static _type JPMETHOD_IMPLEMENTATION_NAME(_typeString) (id slf, SEL selector) &#123;    \</span><br><span class="line">    JSValue *fun = getJSFunctionInObjectHierachy(slf, selector);    \</span><br><span class="line">    JSValue *ret = [fun callWithArguments:_TMPInvocationArguments];  \</span><br><span class="line">    _ret;    \</span><br><span class="line">&#125;   \</span><br><span class="line"></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> JPMETHOD_IMPLEMENTATION_NAME(_typeString) JPMethodImplement_##_typeString</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">pragma</span> clang diagnostic push</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">pragma</span> clang diagnostic ignored "-Wunused-variable"</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> JPMETHOD_RET_ID \</span><br><span class="line">    id obj = formatJSToOC(ret); \</span><br><span class="line">    <span class="keyword">if</span> ([obj isKindOfClass:[NSNull class]]) return nil;  \</span><br><span class="line">    return obj;</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> JPMETHOD_RET_STRUCT(_methodName)    \</span><br><span class="line">    id dict = formatJSToOC(ret);   \</span><br><span class="line">    return _methodName(dict);</span></span><br><span class="line"></span><br><span class="line">JPMETHOD_IMPLEMENTATION_RET(<span class="keyword">void</span>, v, nil)</span><br><span class="line">JPMETHOD_IMPLEMENTATION_RET(id, id, JPMETHOD_RET_ID)</span><br><span class="line">JPMETHOD_IMPLEMENTATION_RET(CGRect, rect, JPMETHOD_RET_STRUCT(dictToRect))</span><br><span class="line">JPMETHOD_IMPLEMENTATION_RET(CGSize, size, JPMETHOD_RET_STRUCT(dictToSize))</span><br><span class="line">JPMETHOD_IMPLEMENTATION_RET(CGPoint, point, JPMETHOD_RET_STRUCT(dictToPoint))</span><br><span class="line">JPMETHOD_IMPLEMENTATION_RET(NSRange, range, JPMETHOD_RET_STRUCT(dictToRange))</span><br><span class="line">JPMETHOD_IMPLEMENTATION(<span class="keyword">char</span>, c, charValue)</span><br><span class="line">JPMETHOD_IMPLEMENTATION(<span class="keyword">unsigned</span> <span class="keyword">char</span>, C, unsignedCharValue)</span><br><span class="line">JPMETHOD_IMPLEMENTATION(<span class="keyword">short</span>, s, shortValue)</span><br><span class="line">JPMETHOD_IMPLEMENTATION(<span class="keyword">unsigned</span> <span class="keyword">short</span>, S, unsignedShortValue)</span><br><span class="line">JPMETHOD_IMPLEMENTATION(<span class="keyword">int</span>, i, intValue)</span><br><span class="line">JPMETHOD_IMPLEMENTATION(<span class="keyword">unsigned</span> <span class="keyword">int</span>, I, unsignedIntValue)</span><br><span class="line">JPMETHOD_IMPLEMENTATION(<span class="keyword">long</span>, l, longValue)</span><br><span class="line">JPMETHOD_IMPLEMENTATION(<span class="keyword">unsigned</span> <span class="keyword">long</span>, L, unsignedLongValue)</span><br><span class="line">JPMETHOD_IMPLEMENTATION(<span class="keyword">long</span> <span class="keyword">long</span>, q, longLongValue)</span><br><span class="line">JPMETHOD_IMPLEMENTATION(<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span>, Q, unsignedLongLongValue)</span><br><span class="line">JPMETHOD_IMPLEMENTATION(<span class="keyword">float</span>, f, floatValue)</span><br><span class="line">JPMETHOD_IMPLEMENTATION(<span class="keyword">double</span>, d, doubleValue)</span><br><span class="line">JPMETHOD_IMPLEMENTATION(BOOL, B, boolValue)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/06/19/JSPatch学习-核心和实现原理/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JSPatch学习:JSPatch核心和实现原理分析
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/06/15/JSPatch源码剖析计划/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JSPatch源码剖析计划</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JSPatch学习-实现技巧" data-title="JSPatch学习:实现技巧" data-url="http://albert438.github.io/2015/06/18/JSPatch学习-实现技巧/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"albert43"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Albert43
+    	</div>
+      	<div class="footer-right">
+      	 	Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> 
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

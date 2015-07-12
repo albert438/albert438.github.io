@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JSPatch学习:JSPatch核心和实现原理分析 | Albert43&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近由于工作的原因开始学习JSPatch的源码，顺便测试JSPatch和帮忙提交bug fix。JSPatch现在还处于在开发阶段，69450d5版本出来后，JSPatch基本功能已经完成，后面要继续深入的话就是加入C API的扩展机制、埋入些经常使用C API，以及考虑传输和加密的机制。
+一、JSPatch核心startEngine首先我们来看看JSPatch是怎么使用的
+123456789-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSPatch学习:JSPatch核心和实现原理分析">
+<meta property="og:url" content="http://albert438.github.io/2015/06/19/JSPatch学习-核心和实现原理/index.html">
+<meta property="og:site_name" content="Albert43's Blog">
+<meta property="og:description" content="最近由于工作的原因开始学习JSPatch的源码，顺便测试JSPatch和帮忙提交bug fix。JSPatch现在还处于在开发阶段，69450d5版本出来后，JSPatch基本功能已经完成，后面要继续深入的话就是加入C API的扩展机制、埋入些经常使用C API，以及考虑传输和加密的机制。
+一、JSPatch核心startEngine首先我们来看看JSPatch是怎么使用的
+123456789-">
+<meta property="og:updated_time" content="2015-07-09T09:49:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JSPatch学习:JSPatch核心和实现原理分析">
+<meta name="twitter:description" content="最近由于工作的原因开始学习JSPatch的源码，顺便测试JSPatch和帮忙提交bug fix。JSPatch现在还处于在开发阶段，69450d5版本出来后，JSPatch基本功能已经完成，后面要继续深入的话就是加入C API的扩展机制、埋入些经常使用C API，以及考虑传输和加密的机制。
+一、JSPatch核心startEngine首先我们来看看JSPatch是怎么使用的
+123456789-">
+  
+    <link rel="alternative" href="/atom.xml" title="Albert43&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://avatars2.githubusercontent.com/u/6995711?v=3&amp;amp;s=460" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Albert43</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">学习总结 思考感悟</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/albert438" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/albert43" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:albertliang.lt@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/JSPatch/" style="font-size: 15px;">JSPatch</a> <a href="/tags/iOS开发/" style="font-size: 20px;">iOS开发</a> <a href="/tags/小记/" style="font-size: 10px;">小记</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://nianxi.net/">念茜博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Albert43</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://avatars2.githubusercontent.com/u/6995711?v=3&amp;amp;s=460" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Albert43</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">学习总结 思考感悟</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/albert438" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/albert43" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:albertliang.lt@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-JSPatch学习-核心和实现原理" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/06/19/JSPatch学习-核心和实现原理/" class="article-date">
+  	<time datetime="2015-06-19T09:17:45.000Z" itemprop="datePublished">2015-06-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JSPatch学习:JSPatch核心和实现原理分析
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSPatch/">JSPatch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS开发/">iOS开发</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近由于工作的原因开始学习JSPatch的源码，顺便测试JSPatch和帮忙提交bug fix。JSPatch现在还处于在开发阶段，<a href="https://github.com/bang590/JSPatch/commit/69450d535a26e3862d43fffdfc03a36f02a24896" target="_blank" rel="external">69450d5</a>版本出来后，JSPatch基本功能已经完成，后面要继续深入的话就是加入C API的扩展机制、埋入些经常使用C API，以及考虑传输和加密的机制。</p>
+<h2 id="一、JSPatch核心">一、JSPatch核心</h2><h1 id="startEngine">startEngine</h1><p>首先我们来看看JSPatch是怎么使用的</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</span><br><span class="line">    </span><br><span class="line">    [JPEngine startEngine];</span><br><span class="line">    <span class="built_in">NSString</span> *sourcePath = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@"demo"</span> ofType:<span class="string">@"js"</span>];</span><br><span class="line">    <span class="built_in">NSString</span> *script = [<span class="built_in">NSString</span> stringWithContentsOfFile:sourcePath encoding:<span class="built_in">NSUTF8StringEncoding</span> error:<span class="literal">nil</span>];</span><br><span class="line">    [JPEngine evaluateScript:script];</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先要调用<code>JPEngine</code>中的类方法<code>startEngine</code>， 调用这个方法的主要目的是先初始化JSContext， JSContext可以说是等会我们用到JS脚本的运行环境，在这里预定义的变量和方法都可以在JS脚本中被调用。作者在这里定义了除了刚刚提到的GCD类外，还定义几个关键的函数:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">context[<span class="string">@"_OC_defineClass"</span>] = ^(<span class="built_in">NSString</span> *classDeclaration, JSValue *instanceMethods, JSValue *classMethods) &#123;</span><br><span class="line">        <span class="keyword">return</span> defineClass(classDeclaration, instanceMethods, classMethods);</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">context[<span class="string">@"_OC_callI"</span>] = ^<span class="keyword">id</span>(JSValue *obj, <span class="built_in">NSString</span> *selectorName, JSValue *arguments, <span class="built_in">BOOL</span> isSuper) &#123;</span><br><span class="line">        <span class="keyword">return</span> callSelector(<span class="literal">nil</span>, selectorName, arguments, obj, isSuper);</span><br><span class="line">    &#125;;</span><br><span class="line">context[<span class="string">@"_OC_callC"</span>] = ^<span class="keyword">id</span>(<span class="built_in">NSString</span> *className, <span class="built_in">NSString</span> *selectorName, JSValue *arguments) &#123;</span><br><span class="line">        <span class="keyword">return</span> callSelector(className, selectorName, arguments, <span class="literal">nil</span>, <span class="literal">NO</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">context[<span class="string">@"_OC_formatJSToOC"</span>] = ^<span class="keyword">id</span>(JSValue *obj) &#123;</span><br><span class="line">        <span class="keyword">return</span> formatJSToOC(obj);</span><br><span class="line">    &#125;;</span><br><span class="line">context[<span class="string">@"_OC_log"</span>] = ^() &#123;</span><br><span class="line">        <span class="built_in">NSArray</span> *args = [JSContext currentArguments];</span><br><span class="line">        <span class="keyword">for</span> (JSValue *jsVal <span class="keyword">in</span> args) &#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"JSPatch.log: %@"</span>, jsVal);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="defineClass">defineClass</h1><p>接下来讲解JSPatch中如何定义一个类以及怎么覆盖原方法或新增一个方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">defineClass(<span class="string">'JPViewController'</span>, &#123;</span><br><span class="line">  handleBtn: <span class="function"><span class="keyword">function</span>(<span class="params">sender</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> tableViewCtrl = JPTableViewController.alloc().init()</span><br><span class="line">    self.navigationController().pushViewController_animated(tableViewCtrl, YES)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><code>defineClass</code>函数可接受三个参数：</p>
+<ol>
+<li>字符串:”需要替换或者新增的类名:继承的父类名 &lt;实现的协议1, 实现的协议2&gt;”</li>
+<li>{实例方法}</li>
+<li>{类方法}</li>
+</ol>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/06/30/JSPatch开发-如何在JS中调用C函数/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JSPatch开发:如何在JS中调用C函数
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/06/18/JSPatch学习-实现技巧/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JSPatch学习:实现技巧</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JSPatch学习-核心和实现原理" data-title="JSPatch学习:JSPatch核心和实现原理分析" data-url="http://albert438.github.io/2015/06/19/JSPatch学习-核心和实现原理/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"albert43"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Albert43
+    	</div>
+      	<div class="footer-right">
+      	 	Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> 
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

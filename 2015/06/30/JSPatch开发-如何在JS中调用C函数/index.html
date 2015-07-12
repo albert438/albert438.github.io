@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JSPatch开发:如何在JS中调用C函数 | Albert43&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="我们知道JSPatch是运用Objective-C runtime和JSBinding技术来在JS中调用Objective-C的方法，但是打补丁的时候难免会要调用到C函数。但是C函数是无法通过runtime来调用的。那怎么办呢？
+这里以CGRectMake()来作为例子，如果想在JS中使用CGRectMake()函数，则需要首先起动JPEngine的时候，将CGRectMake预定义在JSCont">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSPatch开发:如何在JS中调用C函数">
+<meta property="og:url" content="http://albert438.github.io/2015/06/30/JSPatch开发-如何在JS中调用C函数/index.html">
+<meta property="og:site_name" content="Albert43's Blog">
+<meta property="og:description" content="我们知道JSPatch是运用Objective-C runtime和JSBinding技术来在JS中调用Objective-C的方法，但是打补丁的时候难免会要调用到C函数。但是C函数是无法通过runtime来调用的。那怎么办呢？
+这里以CGRectMake()来作为例子，如果想在JS中使用CGRectMake()函数，则需要首先起动JPEngine的时候，将CGRectMake预定义在JSCont">
+<meta property="og:updated_time" content="2015-07-12T17:30:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JSPatch开发:如何在JS中调用C函数">
+<meta name="twitter:description" content="我们知道JSPatch是运用Objective-C runtime和JSBinding技术来在JS中调用Objective-C的方法，但是打补丁的时候难免会要调用到C函数。但是C函数是无法通过runtime来调用的。那怎么办呢？
+这里以CGRectMake()来作为例子，如果想在JS中使用CGRectMake()函数，则需要首先起动JPEngine的时候，将CGRectMake预定义在JSCont">
+  
+    <link rel="alternative" href="/atom.xml" title="Albert43&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://avatars2.githubusercontent.com/u/6995711?v=3&amp;amp;s=460" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Albert43</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">学习总结 思考感悟</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/albert438" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/albert43" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:albertliang.lt@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/JSPatch/" style="font-size: 15px;">JSPatch</a> <a href="/tags/iOS开发/" style="font-size: 20px;">iOS开发</a> <a href="/tags/小记/" style="font-size: 10px;">小记</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://nianxi.net/">念茜博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Albert43</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://avatars2.githubusercontent.com/u/6995711?v=3&amp;amp;s=460" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Albert43</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">学习总结 思考感悟</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/albert438" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/albert43" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:albertliang.lt@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-JSPatch开发-如何在JS中调用C函数" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/06/30/JSPatch开发-如何在JS中调用C函数/" class="article-date">
+  	<time datetime="2015-06-30T10:08:27.000Z" itemprop="datePublished">2015-06-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JSPatch开发:如何在JS中调用C函数
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSPatch/">JSPatch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS开发/">iOS开发</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我们知道JSPatch是运用Objective-C runtime和JSBinding技术来在JS中调用Objective-C的方法，但是打补丁的时候难免会要调用到C函数。但是C函数是无法通过runtime来调用的。那怎么办呢？</p>
+<p>这里以CGRectMake()来作为例子，如果想在JS中使用CGRectMake()函数，则需要首先起动JPEngine的时候，将CGRectMake预定义在JSContext之中。</p>
+<p>而且有一点要注意的，CGRectMake返回的并不是一个对象，而是一个struct类型的变量。struct类型是无法返回到JS环境的，所以要封装成NSDictionary的形式。</p>
+<p>所以首先要定义一个方法来将struct转换成NSDictionary</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="built_in">NSDictionary</span> *)dictOfStruct:(<span class="keyword">void</span> *)structData typeString:(<span class="keyword">const</span> <span class="keyword">char</span>*)type</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (strcmp(type, @encode(<span class="built_in">CGRect</span>)) == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">CGRect</span> *rect = structData;</span><br><span class="line">        <span class="keyword">return</span> @&#123;<span class="string">@"x"</span>: @(rect-&gt;origin<span class="variable">.x</span>), <span class="string">@"y"</span>: @(rect-&gt;origin<span class="variable">.y</span>), <span class="string">@"width"</span>: @(rect-&gt;size<span class="variable">.width</span>), <span class="string">@"height"</span>: @(rect-&gt;size<span class="variable">.height</span>)&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//下面接着定义其他类型的Struct</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样就可以在startEngine中定义CGRectMake方法了，具体如下</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">context[<span class="string">@"_OC_CGRectMake"</span>] = ^<span class="keyword">id</span>(JSValue *x, JSValue *y, JSValue *width, JSValue *height)&#123;</span><br><span class="line">        <span class="built_in">CGRect</span> rect = <span class="built_in">CGRectMake</span>([x toDouble], [y toDouble], [width toDouble], [height toDouble]);</span><br><span class="line">        <span class="keyword">return</span> [JPEngine dictOfStruct:&amp;rect typeString:@encode(<span class="built_in">CGRect</span>)];</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+<p>在JSPatch.js中添加全局变量</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">global.CGRectMake = _OC_CGRectMake;</span><br></pre></td></tr></table></figure>
+<p>在JS中就可以如此调用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">defineClass(<span class="string">'JPViewController'</span>, &#123;</span><br><span class="line">  handleBtn: <span class="function"><span class="keyword">function</span>(<span class="params">sender</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> frame = CGRectMake(<span class="number">0</span>,<span class="number">0</span>,<span class="number">200</span>,<span class="number">200</span>)</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> subView  = <span class="built_in">require</span>(<span class="string">'UIView'</span>).alloc().initWithFrame(frame)</span><br><span class="line"></span><br><span class="line">      subView.setBackgroundColor(<span class="built_in">require</span>(<span class="string">'UIColor'</span>).blueColor())</span><br><span class="line"></span><br><span class="line">      self.view().addSubview(subView)</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/07/07/JSPatch开发-Extension/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JSPatch开发: Extension机制
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/06/19/JSPatch学习-核心和实现原理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JSPatch学习:JSPatch核心和实现原理分析</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JSPatch开发-如何在JS中调用C函数" data-title="JSPatch开发:如何在JS中调用C函数" data-url="http://albert438.github.io/2015/06/30/JSPatch开发-如何在JS中调用C函数/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"albert43"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Albert43
+    	</div>
+      	<div class="footer-right">
+      	 	Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> 
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
