@@ -119,7 +119,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/JSPatch/" style="font-size: 15px;">JSPatch</a> <a href="/tags/iOS开发/" style="font-size: 20px;">iOS开发</a> <a href="/tags/小记/" style="font-size: 10px;">小记</a>
+						<a href="/tags/JSPatch/" style="font-size: 20px;">JSPatch</a> <a href="/tags/iOS学习/" style="font-size: 10px;">iOS学习</a> <a href="/tags/iOS开发/" style="font-size: 20px;">iOS开发</a> <a href="/tags/小记/" style="font-size: 10px;">小记</a>
 					</div>
 				</section>
 				
@@ -222,7 +222,7 @@
       
         <h1 id="NSInvocation简介">NSInvocation简介</h1><p>iOS开发中，有时候我们会使用<code>performSelector:withObject</code>或<code>performSelector:withObject:withObject</code>来对Selector进行调用, 但是这个方法有个缺点就是只能调用包涵两个或以下的参数的方法。</p>
 <p>这时候我们就可以NSInvocation来对方法进行调用。</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">SEL selector = <span class="keyword">@selector</span>(stringCatWtihStr1:str2:);</span><br><span class="line"><span class="built_in">NSMethodSignature</span> *signature = [[MyObject class] 	instanceMethodSignatureForSelector:selector];</span><br><span class="line"><span class="built_in">NSString</span> *str1 = <span class="string">@"Hello"</span>;</span><br><span class="line"><span class="built_in">NSString</span> *str2 = <span class="string">@"World"</span>;</span><br><span class="line"><span class="built_in">NSInvocation</span> *invocation = [<span class="built_in">NSInvocation</span> invocationWithMethodSignature:signature];</span><br><span class="line">MyObject *object = [[MyObject alloc]init];</span><br><span class="line">[invocation setTarget:object];</span><br><span class="line">[invocation setSelector:selector];</span><br><span class="line">[invocation setArgument:&amp;str1 atIndex:<span class="number">2</span>];</span><br><span class="line">[invocation setArgument:&amp;str2 atIndex:<span class="number">3</span>];</span><br><span class="line"><span class="built_in">NSString</span> *result = <span class="literal">nil</span>;</span><br><span class="line">[invocation retainArguments];</span><br><span class="line">[invocation invoke];</span><br><span class="line">[invocation getReturnValue:&amp;result];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,result);</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">SEL</span> selector = <span class="keyword">@selector</span>(stringCatWtihStr1:str2:);</span><br><span class="line"><span class="built_in">NSMethodSignature</span> *signature = [[MyObject class] 	instanceMethodSignatureForSelector:selector];</span><br><span class="line"><span class="built_in">NSString</span> *str1 = <span class="string">@"Hello"</span>;</span><br><span class="line"><span class="built_in">NSString</span> *str2 = <span class="string">@"World"</span>;</span><br><span class="line"><span class="built_in">NSInvocation</span> *invocation = [<span class="built_in">NSInvocation</span> invocationWithMethodSignature:signature];</span><br><span class="line">MyObject *object = [[MyObject alloc]init];</span><br><span class="line">[invocation setTarget:object];</span><br><span class="line">[invocation setSelector:selector];</span><br><span class="line">[invocation setArgument:&amp;str1 atIndex:<span class="number">2</span>];</span><br><span class="line">[invocation setArgument:&amp;str2 atIndex:<span class="number">3</span>];</span><br><span class="line"><span class="built_in">NSString</span> *result = <span class="literal">nil</span>;</span><br><span class="line">[invocation retainArguments];</span><br><span class="line">[invocation invoke];</span><br><span class="line">[invocation getReturnValue:&amp;result];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,result);</span><br></pre></td></tr></table></figure>
 <p>首先需要获得这个方法的签名，确定一个方法需要selector以及这个selector所属的类。<br>通过这个方法签名便可以构造一个NSInvocation实例，通过设置Target，selector，arguments便可以通过<code>invoke</code>方法进行调用，最后通过<code>getReturnValue</code>来获取result。</p>
 <p>通常我们都会使用以下方式去获取返回值。</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *result = <span class="literal">nil</span>;</span><br><span class="line">[invocation getReturnValue:&amp;result];</span><br></pre></td></tr></table></figure>
@@ -241,6 +241,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2015/07/12/JSPatch总结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JSPatch总结
+        
+      </div>
+    </a>
   
   
     <a href="/2015/07/07/JSPatch开发-Extension/" id="article-nav-older" class="article-nav-link-wrap">
