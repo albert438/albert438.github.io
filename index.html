@@ -123,6 +123,8 @@
 					
 			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://nianxi.net/">念茜博客</a>
 			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.cnbang.net/">bang&#39;s blog</a>
+			        
 			        </div>
 				</section>
 				
@@ -213,7 +215,7 @@
 <li><a href="#jspatch-wax"><strong>JSPatch VS Wax lua</strong></a></li>
 <li><a href="#jspatch-core"><strong>JSPatch的原理和核心</strong></a></li>
 <li><a href="#jspatch-Extension"><strong>JSPatch Extension机制</strong></a></li>
-<li><a href="#jspatch-Tech"><strong>JSPatch中的实 现技巧总结</strong></a> </li>
+<li><a href="#jspatch-Tech"><strong>JSPatch中的实现技巧总结</strong></a> </li>
 <li><a href="#conclusion"><strong>工作总结和未来计划</strong></a></li>
 </ol>
 <h2 id="一、JSPatch介绍"><a name="jspatchIntroducton">一、JSPatch介绍</a></h2><h3 id="用途">用途</h3><p>iOS产品开发之中常常会遇到这种情况: 新版本上线后发现有个严重的bug，可能会导致crash率激增，可能会使网络请求无法发出，这时能做的只是赶紧修复bug然后提交等待漫长的AppStore审核，再盼望用户快点升级，付出巨大的人力和时间成本，才能完成此次bug的修复。</p>
@@ -378,8 +380,8 @@
 <blockquote>
 <p>注意到unbox里的一个<code>return self</code>的写法，这里是一个trick。因为前面介绍到的<code>formatJSToOC</code>函数的定义如下</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">id <span class="title">formatJSToOC</span><span class="params">(JSValue *jsval)</span></span></span><br></pre></td></tr></table></figure>
+<p>这个函数需要负责处理JS到OC端的类型转换，但是如果变量类型是指针或者Class类型的话就和无法和id类型写在同一个处理函数里。所以如果是JPBoxing中的obj为nil，则说明是非id类型，直接返回这个JPBoxing。外部得到的这个JPBoxing对象，则再进行相应类型拆箱。</p>
 </blockquote>
-<p>&gt;<br>这个函数需要负责处理JS到OC端的类型转换，但是如果变量类型是指针或者Class类型的话就和无法和id类型写在同一个处理函数里。所以如果是JPBoxing中的obj为nil，则说明是非id类型，直接返回这个JPBoxing。外部得到的这个JPBoxing对象，则再进行相应类型拆箱。</p>
 <p>使用这个Boxing类，调用Extension中的C API时，对指针拆箱，再调用实际的C方法; 返回时，对JS中无法使用的类型进行装箱后再返回; 根据这个机制便可实现对大部分C API的封装。下面以<code>UIGraphicsGetCurrentContext()</code>为例:</p>
 <p><img src="http://ww1.sinaimg.cn/mw1024/68e55315gw1eu0bbdxplrj20e5026mxg.jpg" alt="jpboxing1"><br><img src="http://ww4.sinaimg.cn/mw1024/68e55315gw1eu0bb95xx3j20ez0aa75n.jpg" alt="jpboxing2"></p>
 <p>效果如下：</p>
