@@ -112,7 +112,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/JSPatch/" style="font-size: 15px;">JSPatch</a> <a href="/tags/iOS开发/" style="font-size: 20px;">iOS开发</a> <a href="/tags/小记/" style="font-size: 10px;">小记</a>
+						<a href="/tags/JSPatch/" style="font-size: 15px;">JSPatch</a> <a href="/tags/iOS开发/" style="font-size: 20px;">iOS开发</a> <a href="/tags/小伎俩/" style="font-size: 10px;">小伎俩</a> <a href="/tags/小记/" style="font-size: 10px;">小记</a>
 					</div>
 				</section>
 				
@@ -185,6 +185,102 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-Use-Sublime-Text-2-To-Write-Mark-Down" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/02/Use-Sublime-Text-2-To-Write-Mark-Down/" class="article-date">
+  	<time datetime="2015-08-02T06:39:45.000Z" itemprop="datePublished">2015-08-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/02/Use-Sublime-Text-2-To-Write-Mark-Down/">使用Sublime来写MarkDown</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="MarkDown">MarkDown</h2><p>如果你现在还不知道<a href="http://www.markdown.cn/" target="_blank" rel="external">MarkDown</a>是什么的话，你就Out了。作为一个程序员，MarkDown已经成为我必不可少的工作和生活中的工具。在Github上提交JSPatch我需要用MarkDown来写PR；在回答issuse的时候，我会用markdown语法来使我的回答更好看一些；包括现在此时此刻，我也在用MarkDown写着这篇博客。MarkDown的灵感来自纯文字的电子邮件，使用纯文字来写文档，也不需要像HTML一样利用大量的标签来控制格式，只需要一些简单的符号便能做格式控制。完成写作后便可用markdown解释器进行text-to-HTML的转换，生成排好版的HTML或是PDF文档。</p>
+<h2 id="MarkDown工具">MarkDown工具</h2><p>现在MarkDown比以往的普及程度有了很大的提升，许多开发人员（这些人往往都是都对word，excel什么的一窍不通那个，当然我也是:)）都会用MarkDown对开发文档维护，发邮件等等。许多喜欢写博客的人也转向markdown的怀抱，包括像简书这样的应用，都支持用MarkDown来写作。</p>
+<p>那可以用什么MarkDown工具来写作呢？这里我推荐几个我用过的MarkDown工具。</p>
+<ul>
+<li><strong>mahua</strong></li>
+</ul>
+<p>我最一开始用的markdown工具并不是mou（那时候作为一个穷学生还是买不起mac的- -||），而是一个叫做<a href="http://mahua.jser.me/" target="_blank" rel="external">麻花</a>的在线markdown编辑器，同时也是一个<a href="https://github.com/jserme/mahua" target="_blank" rel="external">开源的项目</a>。好处自然是不用下载客户端，不管你windows也好mac也好都能使用。功能还算比较强大，支持多种主题，左侧编写的时候能在右边即时看到右边的效果。而且重要的是支持语法标记(mou是不支持的)！在使用code fence的时候可以在旁边标注你使用的是什么语法。</p>
+<p>```javascript</p>
+<p>console.log(“Hello, I’m Javascript!”)</p>
+<p>```</p>
+<p>但是有一点瑕疵的是，貌似只支持几种语法高亮，至少我<code>objc</code>这种github支持的语法标记mahua是不支持的。 </p>
+<ul>
+<li><strong>mou</strong></li>
+</ul>
+<p>mou貌似没什么好说的，元老级的mac下MarkDown编辑器，可以说是其他衍生编辑器的始祖。包括我刚提到的mahua，我等会介绍的macdown都可以说是受到mou的启发（原作者都在官网中提到了这一点）。但是我在使用了很短一段时间的macdown之后就放弃了，原因有二:</p>
+<ol>
+<li>最重要的一点：不支持语法标记，写上语法标记就会显示错误。</li>
+<li>稳定性差，工作原因我会将其中一台Mac的操作系统升级到10.11。点击Preferences就会Crash掉(升级前电脑是Yosemite的beta版，一打开mou就崩溃了，暂时不明白什么情况)。但是我使用macdown就没有这种情况。</li>
+</ol>
+<p>还有一点是mou支持CJK及竖排，闭源，正式版收费15刀。</p>
+<ul>
+<li><strong>macdown</strong></li>
+</ul>
+<p>macdown是我的用的最多也是最喜欢的Mac下Markdown编辑器。说macdown之前先分享macdown与mou之间的<a href="http://www.macgg.com/archives/34004.html" target="_blank" rel="external">恩怨情仇</a>。</p>
+<p>作者在<a href="http://macdown.uranusjr.com/blog/post/5/show-hn-macdown/" target="_blank" rel="external">他的博客</a>中表达了他编写MacDown的初衷：作者最初也是Mou的用户，但是苦恼于mou不支持语法高亮，也不支持语法标记，所以才有了重写一个markdown编辑器的想法。最终macdown面世，支持语法高亮，支持语法标记，造福了许多像我这样的开发者。更重要的是，作者将其开源了，没有向他的使用者收取一分钱的费用。macdown的作者是否<strong>“不道德的克隆”</strong>了mou，这点就见仁见智了。但是我想说的是：</p>
+<blockquote>
+<p>你想说我是错的，那你最好证明你是对的。</p>
+</blockquote>
+<p>微信之父张小龙也曾公开表示过，当初想做微信是受到kik的启发，但是微信今天早已超越了一切同类的产品。现在又有谁会说微信是抄袭别人的呢？</p>
+<h2 id="使用Sublime写MarkDown">使用Sublime写MarkDown</h2><p>什么，你说你是个Windows用户？好，那我们可以回归到今天的正题上了:)。Sublime Text这款神器级编辑器我就不多做介绍了，还不知道的先去谷歌/百度一下并下载Sublime Text2。</p>
+<ul>
+<li><strong>为Sublime Text2安装插件管理</strong></li>
+</ul>
+<p>首先先登入这个<a href="https://packagecontrol.io/installation" target="_blank" rel="external">网页</a>根据上面写的步骤为sublime text安装插件，记住便签需要选择sublime text2。</p>
+<ul>
+<li><strong>安装Mardown Preview插件</strong></li>
+</ul>
+<p>打开Sublime后按<code>ctrl + shift + p</code>换出控制面板。键入install package，等待片刻后会再次弹出一个插件仓库搜索面板。这时候键入<code>MardDown Preview</code>，便会进行安装。</p>
+<ul>
+<li><strong>使用浏览器来preview效果</strong></li>
+</ul>
+<p>这时候你便可以用sublime来编写markdown语法了，写了一部分你想查看效果。这时候再次键入<code>ctrl + shift + p</code>，键入markdown，选择<code>preview in browser</code>，再选择<code>github</code>。这时候效果就会在显示器中显示了，效果如下：</p>
+<p>Sublime Text2<br><img src="http://ww1.sinaimg.cn/mw1024/68e55315gw1euocj3qpbrj21iq0g4gul.jpg" alt="Sublime"></p>
+<p>浏览器preview效果<br><img src="http://ww3.sinaimg.cn/mw1024/68e55315gw1euocj4i2mzj212w0r4aii.jpg" alt="2"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小伎俩/">小伎俩</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
   
     <article id="post-JSPatch总结" class="article article-type-post" itemscope itemprop="blogPost">
   
