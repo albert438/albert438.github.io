@@ -14,7 +14,7 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/mw1024/68e55315gw1euocj3qpbrj21iq0g4gul.jpg">
 <meta property="og:image" content="http://ww3.sinaimg.cn/mw1024/68e55315gw1euocj4i2mzj212w0r4aii.jpg">
 <meta property="og:image" content="http://ww2.sinaimg.cn/mw1024/68e55315gw1euocu0hirsj2132080t8u.jpg">
-<meta property="og:updated_time" content="2015-08-04T07:04:50.000Z">
+<meta property="og:updated_time" content="2015-08-04T10:01:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Sublime来写MarkDown">
 <meta name="twitter:description" content="MarkDown如果你现在还不知道MarkDown是什么的话，你就Out了。作为一个程序员，MarkDown已经成为我必不可少的工作和生活中的工具。在Github上提交JSPatch我需要用MarkDown来写PR；在回答issuse的时候，我会用markdown语法来使我的回答更好看一些；包括现在此时此刻，我也在用MarkDown写着这篇博客。MarkDown的灵感来自纯文字的电子邮件，使用纯文">
@@ -258,20 +258,20 @@
 <p>但是无法否认的是，mou在我心目中确实是非常优秀的一款编辑器。只是就我的使用场景来说，macdown更适合我一些。再次感谢这两位开发者创造出真么好用的软件带给我们。</p>
 <p>回到macdown的介绍，功能上，macdown功能上可以说和mou差不多，也是左侧编辑MarkDown的Raw文档，右边实时渲染效果。但是多了对程序员非常重要的语法高亮功能，以及语法标记功能。</p>
 <p>但是macdown还是存在一点问题的，依旧是不支持Objective-C的语法高亮，但是不支持的语法不会像mahua一样出现显示错误的问题。</p>
-<h2 id="使用Sublime写MarkDown">使用Sublime写MarkDown</h2><p>什么，你说你是个Windows用户？好，那我们可以回归到今天的正题上了:)。Sublime Text这款神器级编辑器我就不多做介绍了，还不知道的先去谷歌/百度一下并下载Sublime Text2。</p>
+<h2 id="使用Sublime写MarkDown">使用Sublime写MarkDown</h2><p>什么，你说你是个Windows用户？好，那我们可以回归到今天的正题上了:)。Sublime Text这款神器级编辑器我就不多做介绍了，还不知道的先去谷歌/百度一下并下载Sublime Text。</p>
 <ul>
 <li><strong>为Sublime Text2安装插件管理</strong></li>
 </ul>
-<p>首先先登入这个<a href="https://packagecontrol.io/installation" target="_blank" rel="external">网页</a>根据上面写的步骤为sublime text安装插件，记住便签需要选择sublime text2。</p>
+<p>首先先登入这个<a href="https://packagecontrol.io/installation" target="_blank" rel="external">网页</a>根据上面写的步骤为sublime text安装插件，记住需要选择Sublime text2标签中的代码（如果你下载的是Sublime Text3则选择对应Sublime Text3标签中的代码）。</p>
 <ul>
 <li><strong>安装Mardown Preview插件</strong></li>
 </ul>
-<p>打开Sublime后按<code>ctrl + shift + p</code>换出控制面板。键入install package，等待片刻后会再次弹出一个插件仓库搜索面板。这时候键入<code>MardDown Preview</code>，便会进行安装。</p>
+<p>打开Sublime后按<code>ctrl + shift + p</code>换出控制面板。键入install package，等待片刻后会再次弹出一个插件仓库搜索面板。这时候键入<code>MarkDown Preview</code>后点击回车，便会进行安装。</p>
 <ul>
 <li><strong>使用浏览器来preview效果</strong></li>
 </ul>
-<p>这时候你便可以用sublime来编写markdown语法了，写了一部分你想查看效果。这时候再次键入<code>ctrl + shift + p</code>，键入markdown，选择<code>preview in browser</code>，再选择<code>github</code>。这时候效果就会在显示器中显示了，效果如下：</p>
-<p><img src="http://ww1.sinaimg.cn/mw1024/68e55315gw1euocj3qpbrj21iq0g4gul.jpg" alt="Sublime"></p>
+<p>安装完后你便可以用sublime来编写Markdown语法了并使用浏览器预览了。当你想查看效果的时候，键入<code>ctrl + shift + p</code>，控制板中键入<code>Markdown</code>，选择<code>preview in browser</code>，再选择<code>github</code>。这时候效果就会在显示器中显示了。原生文件与preview的对比如下：</p>
+<p>原生Markdown文件：<br><img src="http://ww1.sinaimg.cn/mw1024/68e55315gw1euocj3qpbrj21iq0g4gul.jpg" alt="Sublime"></p>
 <p>浏览器preview效果：<br><img src="http://ww3.sinaimg.cn/mw1024/68e55315gw1euocj4i2mzj212w0r4aii.jpg" alt="2"></p>
 <p>相比于mou和macdown，sublime在preview的功能上确实不及上两者,不能即时看到渲染后的效果，需要通过浏览器才能看到效果。而相比于其他的Markdown编辑器，其最大的优点是使用了github的markdown解释器，而个人认为github的Markdown解释器的效果是最好的。github的markdown解释器可以支持大部分的语法标记，Objective-C当然也不在话下。并且支持github中的锚链接。</p>
 <p>代码高亮效果：<br><img src="http://ww2.sinaimg.cn/mw1024/68e55315gw1euocu0hirsj2132080t8u.jpg" alt="3"></p>
