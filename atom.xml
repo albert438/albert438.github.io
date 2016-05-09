@@ -1,218 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[Albert43's Blog]]></title>
+  <subtitle><![CDATA[学习总结 思考感悟]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://albert438.github.io/"/>
+  <updated>2015-08-04T10:01:02.000Z</updated>
+  <id>http://albert438.github.io/</id>
   
-  <title>Albert43&#39;s Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Albert43's Blog">
-<meta property="og:url" content="http://albert438.github.io/index.html">
-<meta property="og:site_name" content="Albert43's Blog">
-<meta property="og:description">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Albert43's Blog">
-<meta name="twitter:description">
-  
-    <link rel="alternative" href="/atom.xml" title="Albert43&#39;s Blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/img/favicon.ico">
-  
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-</head>
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			
-			<img lazy-src="https://avatars2.githubusercontent.com/u/6995711?v=3&amp;amp;s=460" class="js-avatar">
-			
-		</a>
-
-		<hgroup>
-		  <h1 class="header-author"><a href="/">Albert43</a></h1>
-		</hgroup>
-
-		
-		<p class="header-subtitle">学习总结 思考感悟</p>
-		
-
-		
-			<div class="switch-btn">
-				<div class="icon">
-					<div class="icon-ctn">
-						<div class="icon-wrap icon-house" data-idx="0">
-							<div class="birdhouse"></div>
-							<div class="birdhouse_holes"></div>
-						</div>
-						<div class="icon-wrap icon-ribbon hide" data-idx="1">
-							<div class="ribbon"></div>
-						</div>
-						
-						<div class="icon-wrap icon-link hide" data-idx="2">
-							<div class="loopback_l"></div>
-							<div class="loopback_r"></div>
-						</div>
-						
-						
-						<div class="icon-wrap icon-me hide" data-idx="3">
-							<div class="user"></div>
-							<div class="shoulder"></div>
-						</div>
-						
-					</div>
-					
-				</div>
-				<div class="tips-box hide">
-					<div class="tips-arrow"></div>
-					<ul class="tips-inner">
-						<li>菜单</li>
-						<li>标签</li>
-						
-						<li>友情链接</li>
-						
-						
-						<li>关于我</li>
-						
-					</ul>
-				</div>
-			</div>
-		
-
-		<div class="switch-area">
-			<div class="switch-wrap">
-				<section class="switch-part switch-part1">
-					<nav class="header-menu">
-						<ul>
-						
-							<li><a href="/">主页</a></li>
-				        
-							<li><a href="/archives">所有文章</a></li>
-				        
-						</ul>
-					</nav>
-					<nav class="header-nav">
-						<div class="social">
-							
-								<a class="github" target="_blank" href="https://github.com/albert438" title="github">github</a>
-					        
-								<a class="weibo" target="_blank" href="http://weibo.com/albert43" title="weibo">weibo</a>
-					        
-								<a class="mail" target="_blank" href="mailto:albertliang.lt@gmail.com" title="mail">mail</a>
-					        
-						</div>
-					</nav>
-				</section>
-				
-				
-				<section class="switch-part switch-part2">
-					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/JSPatch/" style="font-size: 15px;">JSPatch</a> <a href="/tags/iOS开发/" style="font-size: 20px;">iOS开发</a> <a href="/tags/小伎俩/" style="font-size: 10px;">小伎俩</a> <a href="/tags/小记/" style="font-size: 10px;">小记</a>
-					</div>
-				</section>
-				
-				
-				
-				<section class="switch-part switch-part3">
-					<div id="js-friends">
-					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://nianxi.net/">念茜博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.cnbang.net/">bang&#39;s blog</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.justinyan.me/">枫言枫语</a>
-			        
-			        </div>
-				</section>
-				
-
-				
-				
-				<section class="switch-part switch-part4">
-				
-					<div id="js-aboutme">iOS开发工程师   |   WeChat:albert43</div>
-				</section>
-				
-			</div>
-		</div>
-	</header>				
-</div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-  	<div class="overlay">
-  		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">Albert43</h1>
-  	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-				<img lazy-src="https://avatars2.githubusercontent.com/u/6995711?v=3&amp;amp;s=460" class="js-avatar">
-			</div>
-			<hgroup>
-			  <h1 class="header-author">Albert43</h1>
-			</hgroup>
-			
-			<p class="header-subtitle">学习总结 思考感悟</p>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">主页</a></li>
-		        
-					<li><a href="/archives">所有文章</a></li>
-		        
-		        <div class="clearfix"></div>
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-						<a class="github" target="_blank" href="https://github.com/albert438" title="github">github</a>
-			        
-						<a class="weibo" target="_blank" href="http://weibo.com/albert43" title="weibo">weibo</a>
-			        
-						<a class="mail" target="_blank" href="mailto:albertliang.lt@gmail.com" title="mail">mail</a>
-			        
-				</div>
-			</nav>
-		</header>				
-	</div>
-</nav>
-      <div class="body-wrap">
-  
-    <article id="post-Use-Sublime-Text-2-To-Write-Mark-Down" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/02/Use-Sublime-Text-2-To-Write-Mark-Down/" class="article-date">
-  	<time datetime="2015-08-02T06:39:45.000Z" itemprop="datePublished">2015-08-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
+  <author>
+    <name><![CDATA[Albert43]]></name>
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
+  </author>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/02/Use-Sublime-Text-2-To-Write-Mark-Down/">使用Sublime来写MarkDown</a>
-    </h1>
+  <generator uri="http://hexo.io/">Hexo</generator>
   
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="MarkDown">MarkDown</h2><p>如果你现在还不知道<a href="http://wowubuntu.com/markdown/" target="_blank" rel="external">MarkDown</a>是什么的话，你就Out了。作为一个程序员，MarkDown已经成为我必不可少的工作和生活中的工具。在Github上提交JSPatch我需要用MarkDown来写PR；在回答issuse的时候，我会用markdown语法来使我的回答更好看一些；包括现在此时此刻，我也在用MarkDown写着这篇博客。MarkDown的灵感来自纯文字的电子邮件，使用纯文字来写文档，也不需要像HTML一样利用大量的标签来控制格式，只需要一些简单的符号便能做格式控制。完成写作后便可用markdown解释器进行text-to-HTML的转换，生成排好版的HTML或是PDF文档。</p>
+  <entry>
+    <title><![CDATA[使用Sublime来写MarkDown]]></title>
+    <link href="http://albert438.github.io/2015/08/02/Use-Sublime-Text-2-To-Write-Mark-Down/"/>
+    <id>http://albert438.github.io/2015/08/02/Use-Sublime-Text-2-To-Write-Mark-Down/</id>
+    <published>2015-08-02T06:39:45.000Z</published>
+    <updated>2015-08-04T10:01:02.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="MarkDown">MarkDown</h2><p>如果你现在还不知道<a href="http://wowubuntu.com/markdown/" target="_blank" rel="external">MarkDown</a>是什么的话，你就Out了。作为一个程序员，MarkDown已经成为我必不可少的工作和生活中的工具。在Github上提交JSPatch我需要用MarkDown来写PR；在回答issuse的时候，我会用markdown语法来使我的回答更好看一些；包括现在此时此刻，我也在用MarkDown写着这篇博客。MarkDown的灵感来自纯文字的电子邮件，使用纯文字来写文档，也不需要像HTML一样利用大量的标签来控制格式，只需要一些简单的符号便能做格式控制。完成写作后便可用markdown解释器进行text-to-HTML的转换，生成排好版的HTML或是PDF文档。</p>
 <p>网上已有很多关于Markdown语法的教程，这里我就不用大篇幅去讲语法。对Markdown还不了解的同学可以去看这一篇<a href="http://www.jianshu.com/p/q81RER" target="_blank" rel="external">简书</a>。</p>
 <h2 id="MarkDown编辑器">MarkDown编辑器</h2><p>现在MarkDown比以往的普及程度有了很大的提升，许多开发人员（相信很多技术人员对如何使用word、pages来做格式控制还是比较头疼的，当然我也是:)）都会用MarkDown对开发文档维护，发邮件等等。许多喜欢写博客的人也转向markdown的怀抱，包括像简书这样的应用，都支持用MarkDown来写作。</p>
 <p>那可以用什么MarkDown编辑器写作呢？这里我推荐几个我用过的MarkDown编辑器。</p>
@@ -263,59 +71,22 @@
 <p>相比于mou和macdown，sublime在preview的功能上确实不及上两者,不能即时看到渲染后的效果，需要通过浏览器才能看到效果。而相比于其他的Markdown编辑器，其最大的优点是使用了github的markdown解释器，而个人认为github的Markdown解释器的效果是最好的。github的markdown解释器可以支持大部分的语法标记，Objective-C当然也不在话下。并且支持github中的锚链接。</p>
 <p>代码高亮效果：<br><img src="http://ww2.sinaimg.cn/mw1024/68e55315gw1euocu0hirsj2132080t8u.jpg" alt="3"></p>
 <p>使用Markdown编辑好你要写的东西后，你可以将渲染好格式的文件导出HTML格式或PDF格式，或将HTML复制下来粘贴在支持显示HTML的编辑器（Evernote与大多邮箱软件都支持HTML粘贴）中。即使你对word一窍不通（像我一样），从此以后你也可以通过Markdown写出精美、逻辑清晰的文档。</p>
-
-      
-    </div>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="MarkDown">MarkDown</h2><p>如果你现在还不知道<a href="http://wowubuntu.com/markdown/" target="_blank" rel="external">MarkDown</a>是什么的话，你就Out了。]]>
+    </summary>
     
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小伎俩/">小伎俩</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+      <category term="小伎俩" scheme="http://albert438.github.io/tags/%E5%B0%8F%E4%BC%8E%E4%BF%A9/"/>
     
-  </div>
+  </entry>
   
-</article>
-
-
-
-
-
-
-  
-    <article id="post-JSPatch总结" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/07/12/JSPatch总结/" class="article-date">
-  	<time datetime="2015-07-12T09:14:20.000Z" itemprop="datePublished">2015-07-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/12/JSPatch总结/">JSPatch总结</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="JSPatch总结">JSPatch总结</h1><h2 id="目录"><a name="jspatchIntroducton">目录</a></h2><ol>
+  <entry>
+    <title><![CDATA[JSPatch总结]]></title>
+    <link href="http://albert438.github.io/2015/07/12/JSPatch%E6%80%BB%E7%BB%93/"/>
+    <id>http://albert438.github.io/2015/07/12/JSPatch总结/</id>
+    <published>2015-07-12T09:14:20.000Z</published>
+    <updated>2016-03-07T02:53:06.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="JSPatch总结">JSPatch总结</h1><h2 id="目录"><a name="jspatchIntroducton">目录</a></h2><ol>
 <li><a href="#jspatchIntroducton"><strong>JSPatch介绍</strong></a></li>
 <li><a href="#jspatch-wax"><strong>JSPatch VS Wax lua</strong></a></li>
 <li><a href="#jspatch-core"><strong>JSPatch的原理和核心</strong></a></li>
@@ -541,59 +312,25 @@
 <h3 id="使用#pragma来抑制warning">使用#pragma来抑制warning</h3><p>作者使用#pargama宏来对一些warning进行了抑制，详细的介绍可以看参考<a href="http://nshipster.cn/clang-diagnostics/" target="_blank" rel="external">Matt Thomson写的一篇关于clang diagnostics的文章</a>，里面提供了一个<a href="http://fuckingclangwarnings.com/" target="_blank" rel="external">网站</a>详细地记录了抑制各种warning的写法。</p>
 <h3 id="使用宏来预定义IMP函数">使用宏来预定义IMP函数</h3><p>由于要替换原有的函数实现，所以要预先定义好各种返回类型的IMP函数。如果全部写出来的话，将会耗费大量篇幅来写差不多的函数实现，这里作者使用了宏来进行替换，具体代码如下</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#define JPMETHOD_IMPLEMENTATION(_type, _typeString, _typeSelector) \</span></span><br><span class="line">    JPMETHOD_I<span class="built_in">MPLEMENTATION_RET</span>(_type, _typeString, <span class="keyword">return</span> [[ret toObject] _typeSelector]) \</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#define JPMETHOD_IMPLEMENTATION_RET(_type, _typeString, _ret) \</span></span><br><span class="line"><span class="keyword">static</span> _type JPMETHOD_I<span class="built_in">MPLEMENTATION_NAME</span>(_typeString) (<span class="keyword">id</span> slf, SEL selector) &#123;    \</span><br><span class="line">    JSValue *fun = getJSFunctionInObjectHierachy(slf, selector);    \</span><br><span class="line">    JSValue *ret = [fun callWithArguments:_T<span class="built_in">MPInvocationArguments</span>];  \</span><br><span class="line">    _ret;    \</span><br><span class="line">&#125;   \</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#define JPMETHOD_IMPLEMENTATION_NAME(_typeString) JPMethodImplement_##_typeString</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma clang diagnostic push</span></span><br><span class="line"><span class="preprocessor">#pragma clang diagnostic ignored <span class="title">"-Wunused-variable"</span></span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#define JPMETHOD_RET_ID \</span></span><br><span class="line">    <span class="keyword">id</span> obj = formatJSToOC(ret); \</span><br><span class="line">    <span class="keyword">if</span> ([obj isKindOfClass:[<span class="built_in">NSNull</span> class]]) <span class="keyword">return</span> <span class="literal">nil</span>;  \</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#define JPMETHOD_RET_STRUCT(_methodName)    \</span></span><br><span class="line">    <span class="keyword">id</span> dict = formatJSToOC(ret);   \</span><br><span class="line">    <span class="keyword">return</span> _methodName(dict);</span><br><span class="line"></span><br><span class="line">JPMETHOD_I<span class="built_in">MPLEMENTATION_RET</span>(<span class="keyword">void</span>, v, <span class="literal">nil</span>)</span><br><span class="line">JPMETHOD_I<span class="built_in">MPLEMENTATION_RET</span>(<span class="keyword">id</span>, <span class="keyword">id</span>, JPMETHOD_RET_ID)</span><br><span class="line">JPMETHOD_I<span class="built_in">MPLEMENTATION_RET</span>(<span class="built_in">CGRect</span>, rect, JPMETHOD_RET_STRUCT(dictToRect))</span><br><span class="line">JPMETHOD_I<span class="built_in">MPLEMENTATION_RET</span>(<span class="built_in">CGSize</span>, size, JPMETHOD_RET_STRUCT(dictToSize))</span><br><span class="line">JPMETHOD_I<span class="built_in">MPLEMENTATION_RET</span>(<span class="built_in">CGPoint</span>, point, JPMETHOD_RET_STRUCT(dictToPoint))</span><br><span class="line">JPMETHOD_I<span class="built_in">MPLEMENTATION_RET</span>(<span class="built_in">NSRange</span>, range, JPMETHOD_RET_STRUCT(dictToRange))</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="JSPatch总结">JSPatch总结</h1><h2 id="目录"><a name="jspatchIntroducton">目录</a></h2><ol>
+<li><a href="#jspatchIntroducton"><strong>JSPatch介]]>
+    </summary>
     
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSPatch/">JSPatch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS开发/">iOS开发</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+      <category term="JSPatch" scheme="http://albert438.github.io/tags/JSPatch/"/>
     
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-iOS开发-NSInvocation另外一种获取returnValue的形式" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/07/10/iOS开发-NSInvocation另外一种获取returnValue的形式/" class="article-date">
-  	<time datetime="2015-07-10T03:34:05.000Z" itemprop="datePublished">2015-07-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
+      <category term="iOS开发" scheme="http://albert438.github.io/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
+  </entry>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/10/iOS开发-NSInvocation另外一种获取returnValue的形式/">iOS开发:NSInvocation另外一种获取returnValue的形式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="NSInvocation简介">NSInvocation简介</h1><p>iOS开发中，有时候我们会使用<code>performSelector:withObject</code>或<code>performSelector:withObject:withObject</code>来对Selector进行调用, 但是这个方法有个缺点就是只能调用包涵两个或以下的参数的方法。</p>
+  <entry>
+    <title><![CDATA[iOS开发:NSInvocation另外一种获取returnValue的形式]]></title>
+    <link href="http://albert438.github.io/2015/07/10/iOS%E5%BC%80%E5%8F%91-NSInvocation%E5%8F%A6%E5%A4%96%E4%B8%80%E7%A7%8D%E8%8E%B7%E5%8F%96returnValue%E7%9A%84%E5%BD%A2%E5%BC%8F/"/>
+    <id>http://albert438.github.io/2015/07/10/iOS开发-NSInvocation另外一种获取returnValue的形式/</id>
+    <published>2015-07-10T03:34:05.000Z</published>
+    <updated>2015-07-12T17:30:10.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="NSInvocation简介">NSInvocation简介</h1><p>iOS开发中，有时候我们会使用<code>performSelector:withObject</code>或<code>performSelector:withObject:withObject</code>来对Selector进行调用, 但是这个方法有个缺点就是只能调用包涵两个或以下的参数的方法。</p>
 <p>这时候我们就可以NSInvocation来对方法进行调用。</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">SEL selector = <span class="keyword">@selector</span>(stringCatWtihStr1:str2:);</span><br><span class="line"><span class="built_in">NSMethodSignature</span> *signature = [[MyObject class] 	instanceMethodSignatureForSelector:selector];</span><br><span class="line"><span class="built_in">NSString</span> *str1 = <span class="string">@"Hello"</span>;</span><br><span class="line"><span class="built_in">NSString</span> *str2 = <span class="string">@"World"</span>;</span><br><span class="line"><span class="built_in">NSInvocation</span> *invocation = [<span class="built_in">NSInvocation</span> invocationWithMethodSignature:signature];</span><br><span class="line">MyObject *object = [[MyObject alloc]init];</span><br><span class="line">[invocation setTarget:object];</span><br><span class="line">[invocation setSelector:selector];</span><br><span class="line">[invocation setArgument:&amp;str1 atIndex:<span class="number">2</span>];</span><br><span class="line">[invocation setArgument:&amp;str2 atIndex:<span class="number">3</span>];</span><br><span class="line"><span class="built_in">NSString</span> *result = <span class="literal">nil</span>;</span><br><span class="line">[invocation retainArguments];</span><br><span class="line">[invocation invoke];</span><br><span class="line">[invocation getReturnValue:&amp;result];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,result);</span><br></pre></td></tr></table></figure>
 <p>首先需要获得这个方法的签名，确定一个方法需要selector以及这个selector所属的类。<br>通过这个方法签名便可以构造一个NSInvocation实例，通过设置Target，selector，arguments便可以通过<code>invoke</code>方法进行调用，最后通过<code>getReturnValue</code>来获取result。</p>
@@ -606,55 +343,20 @@
 <p>解释一些这个指针操作，因为id类型实质上是一个指针，所以id类型的指针是(void **)，所以需要先将p地址转换为一个id类型的地址，再进行dereference操作。最后bridge为一个id类型。</p>
 <p>这种方法不同于常规，先声明一个变量，再传入这个变量的内存地址。而是先构造一个指向一个地址，随后传入这个地址，最后获取这个地址的内存中的内容。</p>
 <p>在JS中是没有取地址这个操作，所以我们没有办法使用[invocation getReturnValue:&amp;ret]的这种形式。但是我们可以malloc一个内存地址（通过JSBinding和封装指针到一个对象的方式，详见JSPatch的实现)，按照上述的方式去获得returnValue。</p>
-
-      
-    </div>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="NSInvocation简介">NSInvocation简介</h1><p>iOS开发中，有时候我们会使用<code>performSelector:withObject</code>或<code>performSelector:withObject:withOb]]>
+    </summary>
     
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
+  </entry>
   
-</article>
-
-
-
-
-
-
-  
-    <article id="post-JSPatch开发-Extension" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/07/07/JSPatch开发-Extension/" class="article-date">
-  	<time datetime="2015-07-07T04:13:29.000Z" itemprop="datePublished">2015-07-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/07/JSPatch开发-Extension/">JSPatch开发: Extension机制</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="JPExtesnion对C_API和Struct进行扩展">JPExtesnion对C API和Struct进行扩展</h2><p>在上一篇的文章中，我对如何在JSPatch中调用C API进行了介绍。 但是面对大量的C API， 需要一个满足以下需求的扩展机制</p>
+  <entry>
+    <title><![CDATA[JSPatch开发: Extension机制]]></title>
+    <link href="http://albert438.github.io/2015/07/07/JSPatch%E5%BC%80%E5%8F%91-Extension/"/>
+    <id>http://albert438.github.io/2015/07/07/JSPatch开发-Extension/</id>
+    <published>2015-07-07T04:13:29.000Z</published>
+    <updated>2015-07-12T17:31:00.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="JPExtesnion对C_API和Struct进行扩展">JPExtesnion对C API和Struct进行扩展</h2><p>在上一篇的文章中，我对如何在JSPatch中调用C API进行了介绍。 但是面对大量的C API， 需要一个满足以下需求的扩展机制</p>
 <ol>
 <li>可模块化加载</li>
 <li>js脚本可动态加载。</li>
@@ -681,59 +383,24 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> extensionArr = [<span class="built_in">require</span>(<span class="string">'JPInclude'</span>).instance()]</span><br><span class="line">    <span class="built_in">require</span>(<span class="string">'JPEngine'</span>).addExtensions(extensionArr)</span><br><span class="line">    include(<span class="string">'another.js'</span>)</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
 <p>在我自己的分支中，include函数支持加载选项。默认加载选项是兼容方式加载（为满足支持OC，会通过正则表达式替换部分函数的调用方法），而第三方库是不需要被改变的。第二个参数是加载选项，默认是0或者不传入第二个参数，加载第三方库是1。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    include(<span class="string">'thridparty.js'</span>,<span class="number">1</span>)</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="JPExtesnion对C_API和Struct进行扩展">JPExtesnion对C API和Struct进行扩展</h2><p>在上一篇的文章中，我对如何在JSPatch中调用C API进行了介绍。 但是面对大量的C API， 需要一个满足以下需求的扩展机制<]]>
+    </summary>
     
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSPatch/">JSPatch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS开发/">iOS开发</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+      <category term="JSPatch" scheme="http://albert438.github.io/tags/JSPatch/"/>
     
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-JSPatch开发-如何在JS中调用C函数" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/06/30/JSPatch开发-如何在JS中调用C函数/" class="article-date">
-  	<time datetime="2015-06-30T10:08:27.000Z" itemprop="datePublished">2015-06-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
+      <category term="iOS开发" scheme="http://albert438.github.io/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
+  </entry>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/30/JSPatch开发-如何在JS中调用C函数/">JSPatch开发:如何在JS中调用C函数</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我们知道JSPatch是运用Objective-C runtime和JSBinding技术来在JS中调用Objective-C的方法，但是打补丁的时候难免会要调用到C函数。但是C函数是无法通过runtime来调用的。那怎么办呢？</p>
+  <entry>
+    <title><![CDATA[JSPatch开发:如何在JS中调用C函数]]></title>
+    <link href="http://albert438.github.io/2015/06/30/JSPatch%E5%BC%80%E5%8F%91-%E5%A6%82%E4%BD%95%E5%9C%A8JS%E4%B8%AD%E8%B0%83%E7%94%A8C%E5%87%BD%E6%95%B0/"/>
+    <id>http://albert438.github.io/2015/06/30/JSPatch开发-如何在JS中调用C函数/</id>
+    <published>2015-06-30T10:08:27.000Z</published>
+    <updated>2015-07-12T17:30:32.000Z</updated>
+    <content type="html"><![CDATA[<p>我们知道JSPatch是运用Objective-C runtime和JSBinding技术来在JS中调用Objective-C的方法，但是打补丁的时候难免会要调用到C函数。但是C函数是无法通过runtime来调用的。那怎么办呢？</p>
 <p>这里以CGRectMake()来作为例子，如果想在JS中使用CGRectMake()函数，则需要首先起动JPEngine的时候，将CGRectMake预定义在JSContext之中。</p>
 <p>而且有一点要注意的，CGRectMake返回的并不是一个对象，而是一个struct类型的变量。struct类型是无法返回到JS环境的，所以要封装成NSDictionary的形式。</p>
 <p>所以首先要定义一个方法来将struct转换成NSDictionary</p>
@@ -744,59 +411,25 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">global.CGRectMake = _OC_CGRectMake;</span><br></pre></td></tr></table></figure>
 <p>在JS中就可以如此调用</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">defineClass(<span class="string">'JPViewController'</span>, &#123;</span><br><span class="line">  handleBtn: <span class="function"><span class="keyword">function</span>(<span class="params">sender</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> frame = CGRectMake(<span class="number">0</span>,<span class="number">0</span>,<span class="number">200</span>,<span class="number">200</span>)</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> subView  = <span class="built_in">require</span>(<span class="string">'UIView'</span>).alloc().initWithFrame(frame)</span><br><span class="line"></span><br><span class="line">      subView.setBackgroundColor(<span class="built_in">require</span>(<span class="string">'UIColor'</span>).blueColor())</span><br><span class="line"></span><br><span class="line">      self.view().addSubview(subView)</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>我们知道JSPatch是运用Objective-C runtime和JSBinding技术来在JS中调用Objective-C的方法，但是打补丁的时候难免会要调用到C函数。但是C函数是无法通过runtime来调用的。那怎么办呢？</p>
+<p>这里以CGRectMake()]]>
+    </summary>
     
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSPatch/">JSPatch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS开发/">iOS开发</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+      <category term="JSPatch" scheme="http://albert438.github.io/tags/JSPatch/"/>
     
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-JSPatch学习-核心和实现原理" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/06/19/JSPatch学习-核心和实现原理/" class="article-date">
-  	<time datetime="2015-06-19T09:17:45.000Z" itemprop="datePublished">2015-06-19</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
+      <category term="iOS开发" scheme="http://albert438.github.io/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
+  </entry>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/19/JSPatch学习-核心和实现原理/">JSPatch学习:JSPatch核心和实现原理分析</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近由于工作的原因开始学习JSPatch的源码，顺便测试JSPatch和帮忙提交bug fix。JSPatch现在还处于在开发阶段，<a href="https://github.com/bang590/JSPatch/commit/69450d535a26e3862d43fffdfc03a36f02a24896" target="_blank" rel="external">69450d5</a>版本出来后，JSPatch基本功能已经完成，后面要继续深入的话就是加入C API的扩展机制、埋入些经常使用C API，以及考虑传输和加密的机制。</p>
+  <entry>
+    <title><![CDATA[JSPatch学习:JSPatch核心和实现原理分析]]></title>
+    <link href="http://albert438.github.io/2015/06/19/JSPatch%E5%AD%A6%E4%B9%A0-%E6%A0%B8%E5%BF%83%E5%92%8C%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/"/>
+    <id>http://albert438.github.io/2015/06/19/JSPatch学习-核心和实现原理/</id>
+    <published>2015-06-19T09:17:45.000Z</published>
+    <updated>2015-07-09T09:49:36.000Z</updated>
+    <content type="html"><![CDATA[<p>最近由于工作的原因开始学习JSPatch的源码，顺便测试JSPatch和帮忙提交bug fix。JSPatch现在还处于在开发阶段，<a href="https://github.com/bang590/JSPatch/commit/69450d535a26e3862d43fffdfc03a36f02a24896" target="_blank" rel="external">69450d5</a>版本出来后，JSPatch基本功能已经完成，后面要继续深入的话就是加入C API的扩展机制、埋入些经常使用C API，以及考虑传输和加密的机制。</p>
 <h2 id="一、JSPatch核心">一、JSPatch核心</h2><h1 id="startEngine">startEngine</h1><p>首先我们来看看JSPatch是怎么使用的</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</span><br><span class="line">    </span><br><span class="line">    [JPEngine startEngine];</span><br><span class="line">    <span class="built_in">NSString</span> *sourcePath = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@"demo"</span> ofType:<span class="string">@"js"</span>];</span><br><span class="line">    <span class="built_in">NSString</span> *script = [<span class="built_in">NSString</span> stringWithContentsOfFile:sourcePath encoding:<span class="built_in">NSUTF8StringEncoding</span> error:<span class="literal">nil</span>];</span><br><span class="line">    [JPEngine evaluateScript:script];</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>首先要调用<code>JPEngine</code>中的类方法<code>startEngine</code>， 调用这个方法的主要目的是先初始化JSContext， JSContext可以说是等会我们用到JS脚本的运行环境，在这里预定义的变量和方法都可以在JS脚本中被调用。作者在这里定义了除了刚刚提到的GCD类外，还定义几个关键的函数:</p>
@@ -809,59 +442,24 @@
 <li>{实例方法}</li>
 <li>{类方法}</li>
 </ol>
-
-      
-    </div>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>最近由于工作的原因开始学习JSPatch的源码，顺便测试JSPatch和帮忙提交bug fix。JSPatch现在还处于在开发阶段，<a href="https://github.com/bang590/JSPatch/commit/69450d535a26e3862d43]]>
+    </summary>
     
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSPatch/">JSPatch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS开发/">iOS开发</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+      <category term="JSPatch" scheme="http://albert438.github.io/tags/JSPatch/"/>
     
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-JSPatch学习-实现技巧" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/06/18/JSPatch学习-实现技巧/" class="article-date">
-  	<time datetime="2015-06-18T11:50:51.000Z" itemprop="datePublished">2015-06-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
+      <category term="iOS开发" scheme="http://albert438.github.io/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
+  </entry>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/18/JSPatch学习-实现技巧/">JSPatch学习:实现技巧</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="GCD的实现">GCD的实现</h1><p>我们知道JSPatch和Wax的核心技术都是在通过runtime技术来动态替换给类添加方法，但是GCD这种C API是没法通过runtime技术来获取的。这里我也花了时间研究，一开始想通过<a href="http://baike.baidu.com/link?url=tQcimwhSphQpM9I2nSCHWiYHfg7wjtddAsnqjTUvZjM0dGCv0e6PlCy84Ub7iCkEOClHdO-BVZCWyKYQxgFU8K" target="_blank" rel="external">dlsym函数</a>通过函数名来获取对应的函数地址，通过JS脚本传入C函数名称。但实际上还需要预先定义一个相同类型的函数指针才能调用，做不到完全的动态调用。而且还有一个问题就是像CGRectMake这种，实质上是内联函数，并没有对应的函数地址。</p>
+  <entry>
+    <title><![CDATA[JSPatch学习:实现技巧]]></title>
+    <link href="http://albert438.github.io/2015/06/18/JSPatch%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E7%8E%B0%E6%8A%80%E5%B7%A7/"/>
+    <id>http://albert438.github.io/2015/06/18/JSPatch学习-实现技巧/</id>
+    <published>2015-06-18T11:50:51.000Z</published>
+    <updated>2015-07-09T02:14:04.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="GCD的实现">GCD的实现</h1><p>我们知道JSPatch和Wax的核心技术都是在通过runtime技术来动态替换给类添加方法，但是GCD这种C API是没法通过runtime技术来获取的。这里我也花了时间研究，一开始想通过<a href="http://baike.baidu.com/link?url=tQcimwhSphQpM9I2nSCHWiYHfg7wjtddAsnqjTUvZjM0dGCv0e6PlCy84Ub7iCkEOClHdO-BVZCWyKYQxgFU8K" target="_blank" rel="external">dlsym函数</a>通过函数名来获取对应的函数地址，通过JS脚本传入C函数名称。但实际上还需要预先定义一个相同类型的函数指针才能调用，做不到完全的动态调用。而且还有一个问题就是像CGRectMake这种，实质上是内联函数，并没有对应的函数地址。</p>
 <p>现在JSPatch采用的是预先在JSContext中封装了对GCD的调用，所以才能在JS中使用GCD，其代码如下。</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">__<span class="keyword">weak</span> JSContext *weakCtx = context;</span><br><span class="line">  context[<span class="string">@"dispatch_after"</span>] = ^(<span class="keyword">double</span> time, JSValue *func) &#123;</span><br><span class="line">      JSValue *currSelf = weakCtx[<span class="string">@"self"</span>];</span><br><span class="line">      dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^&#123;</span><br><span class="line">          JSValue *prevSelf = weakCtx[<span class="string">@"self"</span>];</span><br><span class="line">          weakCtx[<span class="string">@"self"</span>] = currSelf;</span><br><span class="line">          [func callWithArguments:<span class="literal">nil</span>];</span><br><span class="line">          weakCtx[<span class="string">@"self"</span>] = prevSelf;</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line">  context[<span class="string">@"dispatch_async_main"</span>] = ^(JSValue *func) &#123;</span><br><span class="line">      JSValue *currSelf = weakCtx[<span class="string">@"self"</span>];</span><br><span class="line">      <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">          JSValue *prevSelf = weakCtx[<span class="string">@"self"</span>];</span><br><span class="line">          weakCtx[<span class="string">@"self"</span>] = currSelf;</span><br><span class="line">          [func callWithArguments:<span class="literal">nil</span>];</span><br><span class="line">          weakCtx[<span class="string">@"self"</span>] = prevSelf;</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line">  context[<span class="string">@"dispatch_sync_main"</span>] = ^(JSValue *func) &#123;</span><br><span class="line">      <span class="keyword">if</span> ([<span class="built_in">NSThread</span> currentThread]<span class="variable">.isMainThread</span>) &#123;</span><br><span class="line">          [func callWithArguments:<span class="literal">nil</span>];</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="built_in">dispatch_sync</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">              [func callWithArguments:<span class="literal">nil</span>];</span><br><span class="line">          &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  context[<span class="string">@"dispatch_async_global_queue"</span>] = ^(JSValue *func) &#123;</span><br><span class="line">      JSValue *currSelf = weakCtx[<span class="string">@"self"</span>];</span><br><span class="line">      <span class="built_in">dispatch_async</span>(dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>), ^&#123;</span><br><span class="line">          JSValue *prevSelf = weakCtx[<span class="string">@"self"</span>];</span><br><span class="line">          weakCtx[<span class="string">@"self"</span>] = currSelf;</span><br><span class="line">          [func callWithArguments:<span class="literal">nil</span>];</span><br><span class="line">          weakCtx[<span class="string">@"self"</span>] = prevSelf;</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
 <p>其中要注意的地方一个是，在block里是不能直接使用context的，因为会造成循环引用。所以在这里有两个处理方式，要么是使用__weak修饰符，要么就是使用JavascriptCore.framework提供的api</p>
@@ -872,59 +470,24 @@
 <h1 id="使用#pragma来抑制warning">使用#pragma来抑制warning</h1><p>详细的介绍可以看参考<a href="http://nshipster.cn/clang-diagnostics/" target="_blank" rel="external">Matt Thomson写的一篇关于clang diagnostics的文章</a>，里面提供了一个<a href="http://fuckingclangwarnings.com/" target="_blank" rel="external">网站</a>详细地记录了抑制各种warning的写法。</p>
 <h1 id="使用宏来预定义IMP函数">使用宏来预定义IMP函数</h1><p>由于要替换原有的函数实现，所以要预先定义好各种返回类型的IMP函数。如果全部写出来的话，将会耗费大量篇幅来写差不多的函数实现，这里作者使用了宏来进行替换，具体代码如下</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">define</span> JPMETHOD_IMPLEMENTATION(_type, _typeString, _typeSelector) \</span><br><span class="line">    JPMETHOD_IMPLEMENTATION_RET(_type, _typeString, return [[ret toObject] _typeSelector]) \</span><br><span class="line"></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> JPMETHOD_IMPLEMENTATION_RET(_type, _typeString, _ret) \</span><br><span class="line">static _type JPMETHOD_IMPLEMENTATION_NAME(_typeString) (id slf, SEL selector) &#123;    \</span><br><span class="line">    JSValue *fun = getJSFunctionInObjectHierachy(slf, selector);    \</span><br><span class="line">    JSValue *ret = [fun callWithArguments:_TMPInvocationArguments];  \</span><br><span class="line">    _ret;    \</span><br><span class="line">&#125;   \</span><br><span class="line"></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> JPMETHOD_IMPLEMENTATION_NAME(_typeString) JPMethodImplement_##_typeString</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">pragma</span> clang diagnostic push</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">pragma</span> clang diagnostic ignored <span class="string">"-Wunused-variable"</span></span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> JPMETHOD_RET_ID \</span><br><span class="line">    id obj = formatJSToOC(ret); \</span><br><span class="line">    <span class="keyword">if</span> ([obj isKindOfClass:[NSNull class]]) return nil;  \</span><br><span class="line">    return obj;</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> JPMETHOD_RET_STRUCT(_methodName)    \</span><br><span class="line">    id dict = formatJSToOC(ret);   \</span><br><span class="line">    return _methodName(dict);</span></span><br><span class="line"></span><br><span class="line">JPMETHOD_IMPLEMENTATION_RET(<span class="keyword">void</span>, v, nil)</span><br><span class="line">JPMETHOD_IMPLEMENTATION_RET(id, id, JPMETHOD_RET_ID)</span><br><span class="line">JPMETHOD_IMPLEMENTATION_RET(CGRect, rect, JPMETHOD_RET_STRUCT(dictToRect))</span><br><span class="line">JPMETHOD_IMPLEMENTATION_RET(CGSize, size, JPMETHOD_RET_STRUCT(dictToSize))</span><br><span class="line">JPMETHOD_IMPLEMENTATION_RET(CGPoint, point, JPMETHOD_RET_STRUCT(dictToPoint))</span><br><span class="line">JPMETHOD_IMPLEMENTATION_RET(NSRange, range, JPMETHOD_RET_STRUCT(dictToRange))</span><br><span class="line">JPMETHOD_IMPLEMENTATION(<span class="keyword">char</span>, c, charValue)</span><br><span class="line">JPMETHOD_IMPLEMENTATION(<span class="keyword">unsigned</span> <span class="keyword">char</span>, C, unsignedCharValue)</span><br><span class="line">JPMETHOD_IMPLEMENTATION(<span class="keyword">short</span>, s, shortValue)</span><br><span class="line">JPMETHOD_IMPLEMENTATION(<span class="keyword">unsigned</span> <span class="keyword">short</span>, S, unsignedShortValue)</span><br><span class="line">JPMETHOD_IMPLEMENTATION(<span class="keyword">int</span>, i, intValue)</span><br><span class="line">JPMETHOD_IMPLEMENTATION(<span class="keyword">unsigned</span> <span class="keyword">int</span>, I, unsignedIntValue)</span><br><span class="line">JPMETHOD_IMPLEMENTATION(<span class="keyword">long</span>, l, longValue)</span><br><span class="line">JPMETHOD_IMPLEMENTATION(<span class="keyword">unsigned</span> <span class="keyword">long</span>, L, unsignedLongValue)</span><br><span class="line">JPMETHOD_IMPLEMENTATION(<span class="keyword">long</span> <span class="keyword">long</span>, q, longLongValue)</span><br><span class="line">JPMETHOD_IMPLEMENTATION(<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span>, Q, unsignedLongLongValue)</span><br><span class="line">JPMETHOD_IMPLEMENTATION(<span class="keyword">float</span>, f, floatValue)</span><br><span class="line">JPMETHOD_IMPLEMENTATION(<span class="keyword">double</span>, d, doubleValue)</span><br><span class="line">JPMETHOD_IMPLEMENTATION(BOOL, B, boolValue)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="GCD的实现">GCD的实现</h1><p>我们知道JSPatch和Wax的核心技术都是在通过runtime技术来动态替换给类添加方法，但是GCD这种C API是没法通过runtime技术来获取的。这里我也花了时间研究，一开始想通过<a href="http://]]>
+    </summary>
     
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSPatch/">JSPatch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS开发/">iOS开发</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+      <category term="JSPatch" scheme="http://albert438.github.io/tags/JSPatch/"/>
     
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-JSPatch源码剖析计划" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/06/15/JSPatch源码剖析计划/" class="article-date">
-  	<time datetime="2015-06-15T13:57:35.000Z" itemprop="datePublished">2015-06-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
+      <category term="iOS开发" scheme="http://albert438.github.io/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
+  </entry>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/15/JSPatch源码剖析计划/">JSPatch源码剖析计划</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="缘起">缘起</h1><p>来实习之前的第一个星期，导师津神就给我布置了一个任务，让我研究一下wax和iOS热部署，希望我能在实习的过程中把这个搞定并应用到项目的下一个版本之中。导师出到声，我赶紧上github把wax clone下来。看了下ReadME大致了解了wax的情况:</p>
+  <entry>
+    <title><![CDATA[JSPatch源码剖析计划]]></title>
+    <link href="http://albert438.github.io/2015/06/15/JSPatch%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E8%AE%A1%E5%88%92/"/>
+    <id>http://albert438.github.io/2015/06/15/JSPatch源码剖析计划/</id>
+    <published>2015-06-15T13:57:35.000Z</published>
+    <updated>2015-07-09T02:16:06.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="缘起">缘起</h1><p>来实习之前的第一个星期，导师津神就给我布置了一个任务，让我研究一下wax和iOS热部署，希望我能在实习的过程中把这个搞定并应用到项目的下一个版本之中。导师出到声，我赶紧上github把wax clone下来。看了下ReadME大致了解了wax的情况:</p>
 <ol>
 <li>项目是lua写的，意味我又得学一门新语言了</li>
 <li>wax年久失修，多年之前作者便不作更新，并留下这样一句话就离开了iOS界</li>
@@ -941,151 +504,35 @@
 <p><a href="http://blog.cnbang.net/works/2767/" target="_blank" rel="external">JSPatch – 动态更新iOS APP</a></p>
 <p><a href="http://blog.cnbang.net/tech/2808/" target="_blank" rel="external">JSPatch实现原理详解</a></p>
 <p>JSPatch当中的核心技术就是JSBinding以及Objective-C runtime技术，对于我这种JS和runtime都是半桶水的人来说理解起来还是有点吃力的。但是伟大的Linux作者林纳斯曾经说过“RTFSC”！为了深入学习JSPatch，就得深入到源代码之中。接下来的几篇日志中，我将会分析JSPatch的源代码和详细的思路。</p>
-
-      
-    </div>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="缘起">缘起</h1><p>来实习之前的第一个星期，导师津神就给我布置了一个任务，让我研究一下wax和iOS热部署，希望我能在实习的过程中把这个搞定并应用到项目的下一个版本之中。导师出到声，我赶紧上github把wax clone下来。看了下ReadME大致了解了]]>
+    </summary>
     
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS开发/">iOS开发</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+      <category term="iOS开发" scheme="http://albert438.github.io/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-  </div>
+  </entry>
   
-</article>
-
-
-
-
-
-
-  
-    <article id="post-My-first-post" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/06/14/My-first-post/" class="article-date">
-  	<time datetime="2015-06-14T03:26:06.000Z" itemprop="datePublished">2015-06-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/14/My-first-post/">第一篇博客</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="缘起">缘起</h2><p>其实很早之前就听说过用github page加个模板引擎就可以搭建一个简单的博客，自己作为一个程序员也想要一个属于自己的技术博客很久了，今天耗费了一点时间终于能够得偿所愿。</p>
+  <entry>
+    <title><![CDATA[第一篇博客]]></title>
+    <link href="http://albert438.github.io/2015/06/14/My-first-post/"/>
+    <id>http://albert438.github.io/2015/06/14/My-first-post/</id>
+    <published>2015-06-14T03:26:06.000Z</published>
+    <updated>2015-07-09T02:18:14.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="缘起">缘起</h2><p>其实很早之前就听说过用github page加个模板引擎就可以搭建一个简单的博客，自己作为一个程序员也想要一个属于自己的技术博客很久了，今天耗费了一点时间终于能够得偿所愿。</p>
 <p>不过拖了这么长时间才搭建起来也确实是有自己的原因，我一直以来对自己的文笔是不大有信心的。回想起以前初中、高中每当要语文考试的时候，我都要花一个周末的时间（语文考试一般是周一第一门）来背诵语文作文，那段日子真的是不堪回首。读研之后自己也开始记录一些技术方面的文字，这些文字现在都静静地躺在印象笔记里，统计了一下不知不觉已经有549篇笔记了。以后估计会稍微整理一下有用的笔记出来分享到博客当中。</p>
 <h2 id="这个博客要写些什么内容">这个博客要写些什么内容</h2><p>前期还是会多写些关于iOS技术类的文章，总结一些开发时遇到的问题，在微信实习的经历和感悟。后期等博客写熟练，磨练出自己的文笔和有更多的生活历练之后会尝试写一些关于人文类的、生活体验类的文章。</p>
 <h2 id="最后">最后</h2><p>最后想对自己提几个要求</p>
 <p>1、希望自己能够在这个博客里多思考多总结，而不要想都不想先转载，转载是别人的，思考过后才是你的。</p>
 <p>2、写博客难在坚持，千万不能半途而废，贵在积累。</p>
-
-      
-    </div>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="缘起">缘起</h2><p>其实很早之前就听说过用github page加个模板引擎就可以搭建一个简单的博客，自己作为一个程序员也想要一个属于自己的技术博客很久了，今天耗费了一点时间终于能够得偿所愿。</p>
+<p>不过拖了这么长时间才搭建起来也确实是有自己的原因]]>
+    </summary>
     
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小记/">小记</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+      <category term="小记" scheme="http://albert438.github.io/tags/%E5%B0%8F%E8%AE%B0/"/>
     
-  </div>
+  </entry>
   
-</article>
-
-
-
-
-
-
-  
-  
-</div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2016 Albert43
-    	</div>
-      	<div class="footer-right">
-      	 	Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> 
-      	</div>
-    </div>
-  </div>
-</footer>
-    </div>
-    
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-
-
-<script>
-	var yiliaConfig = {
-		fancybox: true,
-		mathjax: true,
-		animate: true,
-		isHome: true,
-		isPost: false,
-		isArchive: false,
-		isTag: false,
-		isCategory: false,
-		open_in_new: false
-	}
-</script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
-
-
-
-
-
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
-
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-  </div>
-</body>
-</html>
+</feed>
